@@ -53,8 +53,24 @@ agregarbtn.addEventListener('click', function(){
                 spanTexto.textContent = nuevoTexto;
 
                 // Reemplazar el cmapo de entrada por el nuevo texto
-                nuevaTarea.replaceChild(spanTexto)
+                nuevaTarea.replaceChild(spanTexto, nuevaTarea.firstChild)
             }
         })
+
+        // Añador los botones al div de botones
+        divBotones.appendChild(modificarBtn);
+        divBotones.appendChild(eliminarbtn);
+
+        // Añador el div de botones a la tarea
+        nuevaTarea.appendChild(divBotones)
+
+        // Añadir la nueva tarea a la lista de tareas
+        listarTareas.appendChild(nuevaTarea);
+
+        // Limpiear el campo de entrada despues de agregar la tarea
+        nuevaTareaInput.value = '';
+    }else {
+        // si el cmapo esta vacio que me muestra una alerta al usuario
+        alert('Por favor ingresa una tarea')
     }
-})
+});
